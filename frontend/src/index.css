@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Only essential animations for auth pages */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-light-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    @apply text-text-dark antialiased;
+  }
+
+  body {
+    @apply bg-light-bg font-sans text-base;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium text-text-dark;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors duration-normal;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Auth page animations only */
+  .auth-animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .auth-animate-slide-up {
+    animation: slideInUp 0.5s ease forwards;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-button font-medium transition-all duration-normal;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-white hover:text-primary border border-transparent hover:border-primary shadow-button hover:shadow-button-hover;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary border border-primary hover:bg-primary-light;
+  }
+
+  .btn-success {
+    @apply bg-success text-white hover:bg-white hover:text-success hover:border-success border border-transparent;
+  }
+
+  .btn-error {
+    @apply bg-error text-white hover:bg-white hover:text-error hover:border-error border border-transparent;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-card-bg rounded-card shadow-card hover:shadow-card-hover transition-all duration-normal;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-3 py-2 border border-border rounded-button focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all duration-normal;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-text-dark mb-1;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin h-5 w-5 border-2 border-t-transparent rounded-full;
+  }
+}

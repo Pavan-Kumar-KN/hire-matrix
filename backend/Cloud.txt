@@ -1,0 +1,3 @@
+API key = 141385872566537
+Secret Key = -UtBpPxs4CkUwKFPBkOX_eVkWOM
+cloud Name = dt5cv1kmt
